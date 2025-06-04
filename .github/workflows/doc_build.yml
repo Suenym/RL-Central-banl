@@ -1,0 +1,31 @@
+name: Documentation
+
+on:
+  push:
+    paths:
+      - 'docs/**'
+  pull_request:
+    paths:
+      - 'docs/**'
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install docs requirements
+        run: |
+          pip install sphinx sphinx-rtd-theme
+      - name: Build HTML docs
+        run: |
+          cd docs
+          make html
+      - name: Upload docs artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: html-docs
+          path: docs/_build/html

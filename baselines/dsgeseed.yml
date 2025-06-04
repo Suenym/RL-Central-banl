@@ -1,0 +1,4 @@
+# Example steady state DSGE parameters
+inflation_target: 2.0
+interest_rate: 1.0
+output_gap: 0.0
