@@ -1,0 +1,11 @@
+required:
+  - demand
+  - supply
+  - financial
+properties:
+  demand:
+    type: number
+  supply:
+    type: number
+  financial:
+    type: number
